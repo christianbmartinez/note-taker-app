@@ -1,16 +1,10 @@
-let noteTitle
-let noteText
-let saveNoteBtn
-let newNoteBtn
-let noteList
-
-if (window.location.pathname === '/notes') {
-  noteTitle = document.querySelector('.note-title')
-  noteText = document.querySelector('.note-textarea')
-  saveNoteBtn = document.querySelector('.save-note')
-  newNoteBtn = document.querySelector('.new-note')
-  noteList = document.querySelectorAll('.list-container .list-group')
-}
+let noteTitle = document.querySelector('.note-title')
+let noteText = document.querySelector('.note-textarea')
+let saveNoteBtn = document.querySelector('.save-note')
+let newNoteBtn = document.querySelector('.new-note')
+let deleteNoteBtn = document.querySelector('.delete-note')
+let noteList = document.querySelectorAll('.list-container .list-group')
+let notesList = document.getElementById('notes-list')
 
 // Show an element
 const show = (elem) => {
@@ -25,13 +19,29 @@ const hide = (elem) => {
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {}
 
-const getNotes = () =>
+const getNotes = () => {
   fetch('/api/notes', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
+      } else {
+        throw new Error('Error fetching /api/notes')
+      }
+    })
+    .then((notes) => {
+      notes.map((note) => {
+        notesList.innerHTML = `<li class="list-group-item">${note.text}<i class="fas fa-trash text-danger delete-note"></i></li>`
+      })
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+}
 
 const saveNote = (note) =>
   fetch('/api/notes', {
@@ -65,3 +75,5 @@ const renderActiveNote = () => {
     noteText.value = ''
   }
 }
+
+window.onload = () => getNotes()
