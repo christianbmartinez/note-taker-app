@@ -1,1 +1,17 @@
-[]
+[
+    {
+        "title": "Hello Github",
+        "text": "This is a test",
+        "id": "4f736755-fa58-4028-ac31-e5dfd6708061"
+    },
+    {
+        "title": "This is a test",
+        "text": "Note taking app",
+        "id": "4b541166-1c99-45e3-83dc-28f855f9f298"
+    },
+    {
+        "title": "Testing",
+        "text": "Hello world",
+        "id": "298833fd-0dbe-4d4f-b231-a9e3e769cea8"
+    }
+]

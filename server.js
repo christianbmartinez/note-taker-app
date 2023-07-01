@@ -14,6 +14,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use('/api', api)
 
+// Wildcard route for other pages that are non existent, send user to index
+//app.get('*', (req, res) => {
+//  res.sendFile(path.join(__dirname, '/public/index.html'))
+//})
 // GET request for the home page sends index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/index.html'))
