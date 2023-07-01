@@ -25,6 +25,8 @@ notes.post('/', (req, res) => {
     }
 
     readAndAppend(newNote, './db/db.json')
+    // Redirect immediately after posting
+    res.redirect('/notes')
     res.json({ success: true, text: 'Successfully added new note' })
   } else {
     res.json({ success: false, text: 'Failed to add new note' })
@@ -33,8 +35,9 @@ notes.post('/', (req, res) => {
 
 // DELETE API Route to delete a note
 notes.delete('/:id', (req, res) => {
-  readAndDelete(req.params.id, './db/db.json')
-
+  const { id } = req.params.id
+  readAndDelete(id, './db/db.json')
+  // Redirect immediately after deleting
   res.redirect('/notes')
 })
 

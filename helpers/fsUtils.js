@@ -42,7 +42,12 @@ const readAndDelete = (id, file) => {
     if (err) {
       console.error(err)
     } else {
-      console.log(id, data)
+      const parsedData = JSON.parse(data)
+      parsedData.splice(id, 1)
+      for (let i = id; i < parsedData.length; i++) {
+        parsedData[i].id = i.toString()
+      }
+      writeToFile(file, parsedData)
     }
   })
 }
