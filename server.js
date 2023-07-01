@@ -14,10 +14,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use('/api', api)
 
-// Wildcard route for other pages that are non existent, send user to index
-//app.get('*', (req, res) => {
-//  res.sendFile(path.join(__dirname, '/public/index.html'))
-//})
 // GET request for the home page sends index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/index.html'))
@@ -25,6 +21,10 @@ app.get('/', (req, res) => {
 // GET request for the notes page sends notes.html
 app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/notes.html'))
+})
+// Wildcard route for other pages that are non existent, send user to index
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 // Listen on the port specified
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`))
