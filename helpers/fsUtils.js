@@ -31,4 +31,23 @@ const readAndAppend = (content, file) => {
   })
 }
 
-module.exports = { readFromFile, writeToFile, readAndAppend }
+/**
+ *  Function to read data from a given a file and delete some content
+ *  @param {number} id The id inside of the object in the file
+ *  @param {string} file The path to the file you want to save to.
+ *  @returns {void} Nothing
+ */
+const readAndDelete = (id, file) => {
+  fs.readFile(file, 'utf8', (err, data) => {
+    if (err) {
+      console.error(err)
+    } else {
+      const parsedData = JSON.parse(data)
+      const objWithIdIndex = parsedData.findIndex((obj) => obj.id === id)
+
+      console.log(objWithIdIndex)
+    }
+  })
+}
+
+module.exports = { readFromFile, writeToFile, readAndAppend, readAndDelete }

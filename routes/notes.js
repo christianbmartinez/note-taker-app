@@ -1,6 +1,10 @@
 // Packages needed for our api
 const notes = require('express').Router()
-const { readFromFile, readAndAppend } = require('../helpers/fsUtils')
+const {
+  readFromFile,
+  readAndAppend,
+  readAndDelete,
+} = require('../helpers/fsUtils')
 const { v4: uuidv4 } = require('uuid')
 
 // GET API Route for retrieving all the notes
@@ -28,8 +32,13 @@ notes.post('/', (req, res) => {
 })
 
 // DELETE API Route to delete a note
-notes.delete('/', (req, res) => {
-  console.log(req.body)
+notes.delete('/:id', (req, res) => {
+  const { id } = req.params.id
+  console.log('Id destructured from delete route:', id)
+
+  readAndDelete(id, './db/db.json')
+
+  res.json({ success: true, text: `Successfully deleted note with id ${id}` })
 })
 
 module.exports = notes
