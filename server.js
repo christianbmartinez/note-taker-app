@@ -1,8 +1,12 @@
 const express = require('express')
 const path = require('path')
 const app = express()
-const api = require('./routes/index.js')
+const { mw } = require('./middleware/mw')
+const api = require('./routes/index')
 const PORT = 5000
+
+// Import custom middleware, "mw"
+app.use(mw)
 
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.static('public'))
