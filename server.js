@@ -13,6 +13,7 @@ app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use('/api', api)
+
 // GET request for the home page sends index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/index.html'))
