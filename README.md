@@ -40,4 +40,4 @@ A full stack application for taking notes
 
   Feel free to [email](mailto:hello@christianbmartinez.com?subject=[GitHub]%20Note%20Taker) me with any questions or view [my github profile](https://github.com/christianbmartinez)
 
-View live site [here](www.sitewillcomesoon.com)
+View live site [here](https://myawesomenotetakerapp-20166840c975.herokuapp.com/)
