@@ -3,7 +3,7 @@ const path = require('path')
 const app = express()
 const { mw } = require('./middleware/mw')
 const api = require('./routes/index')
-const PORT = 5000
+const PORT = process.env.PORT || 5000
 
 // Import custom middleware, "mw"
 app.use(mw)
