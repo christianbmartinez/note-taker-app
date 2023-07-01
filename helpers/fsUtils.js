@@ -42,10 +42,7 @@ const readAndDelete = (id, file) => {
     if (err) {
       console.error(err)
     } else {
-      const parsedData = JSON.parse(data)
-      const objWithIdIndex = parsedData.findIndex((obj) => obj.id === id)
-
-      console.log(objWithIdIndex)
+      console.log(id, data)
     }
   })
 }

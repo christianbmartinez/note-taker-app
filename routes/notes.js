@@ -33,12 +33,9 @@ notes.post('/', (req, res) => {
 
 // DELETE API Route to delete a note
 notes.delete('/:id', (req, res) => {
-  const { id } = req.params.id
-  console.log('Id destructured from delete route:', id)
+  readAndDelete(req.params.id, './db/db.json')
 
-  readAndDelete(id, './db/db.json')
-
-  res.json({ success: true, text: `Successfully deleted note with id ${id}` })
+  res.redirect('/notes')
 })
 
 module.exports = notes
