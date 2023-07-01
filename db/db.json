@@ -1,12 +1,12 @@
 [
-  {
-    "title": "Test Title",
-    "text": "Test text",
-    "id": 23424332
-  },
-  {
-    "title": "Test Title 2",
-    "text": "Test text 2",
-    "id": 23473548
-  }
+    {
+        "title": "Testing",
+        "text": "This is a real test.",
+        "id": "05e51bb6-2031-4d9a-bac2-b22e7f6ac719"
+    },
+    {
+        "title": "This is also a test",
+        "text": "Testing 123",
+        "id": "73da0781-3606-45d4-84f2-be62e99c828a"
+    }
 ]
