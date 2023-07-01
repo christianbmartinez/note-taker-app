@@ -34,9 +34,10 @@ const getNotes = () => {
       }
     })
     .then((notes) => {
-      notes.map((note) => {
-        notesList.innerHTML = `<li class="list-group-item">${note.text}<i class="fas fa-trash text-danger delete-note"></i></li>`
-      })
+      notesList.innerHTML = notes.map(
+        (note) =>
+          `<li class="list-group-item">${note.text}<i class="fas fa-trash text-danger delete-note"></i></li>`
+      )
     })
     .catch((error) => {
       console.error(error)
